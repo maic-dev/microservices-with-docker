@@ -1,7 +1,3 @@
-import dotenv from "dotenv/config";
-
-if (process.env.NODE_ENV !== "production") { dotenv }
-
 import express from "express";
 import "reflect-metadata";
 
@@ -22,5 +18,3 @@ async function main() {
         console.log(`Servidor a su servicio en el puerto ${port}`)
     })
 } main()
-
-

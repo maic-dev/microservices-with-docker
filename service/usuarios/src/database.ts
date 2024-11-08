@@ -9,6 +9,5 @@ export const AppDataSource = new DataSource({
         User
     ],
     synchronize: true,
-    //logging: true,
-    ssl: true
+    //logging: true
 })

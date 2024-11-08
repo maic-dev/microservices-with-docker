@@ -26,6 +26,18 @@ export const getUsers = async (req: Request, res: Response) => {
     }
 }
 
+export const getUser = async (req: Request, res: Response) => {
+    try {
+        const user = await User.findOneBy({ id: req.params.id });
+
+        if (!user) return res.status(404).json({ message: 'User not found' });
+
+        return res.json(user);
+    } catch (error: any) {
+        return res.status(404).json({ message: error.message });
+    }
+}
+
 export const updateUser = async (req: Request, res: Response) => {
     try {
         const id = req.params.id;
@@ -36,7 +48,7 @@ export const updateUser = async (req: Request, res: Response) => {
 
         await User.update({ id: id }, req.body)
 
-        return res.sendStatus(204)
+        return res.json({ msg: 'User updated successfully' })
     } catch (error: any) {
         return res.status(404).json({ message: error.message });
     }
@@ -52,7 +64,7 @@ export const deleteUser = async (req: Request, res: Response) => {
 
         await User.delete({ id: id })
 
-        return res.sendStatus(204)
+        return res.json({ msg: 'User deleted successfully' })
     } catch (error: any) {
         return res.status(404).json({ message: error.message });
     }
