@@ -4,7 +4,7 @@ const resend = new Resend(process.env.RESEND_KEY);
 
 export const sendVerificationEmail = (email, token) => {
     console.log(email)
-    const verificationLink = `http://localhost:4000/api/verify?token=${token}`;
+    const verificationLink = `http://localhost:${process.env.PORT}/api/verify?token=${token}`;
     resend.emails.send({
         from: process.env.EMAIL_HOST,
         to: [email],

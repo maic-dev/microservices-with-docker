@@ -1,6 +1,6 @@
 #### ! Install
 
-    > npm i prima -D
+    > npm i prisma -D
 ---
 
 #### ! Import
